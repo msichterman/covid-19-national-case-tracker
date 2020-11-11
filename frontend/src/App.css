@@ -1,0 +1,48 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-name {
+  margin-left: 3em;
+  font-weight: bolder;
+}
+
+section {
+  padding: 40px 80px;
+}
+
+section:nth-child(odd) {
+  background: lightgray;
+}
+
+ul.nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 36px;
+  line-height: 36px;
+  background: #dd0000;
+  font-size: 13px;
+}
+ul.nav li {
+  border-right: 1px solid #aa0000;
+  float: left;
+}
+ul.nav a {
+  display: block;
+  padding: 0 28px;
+  color: #ccece6;
+  text-decoration: none;
+  font-weight: bold;
+}
+ul.nav a:hover,
+ul.nav li.current a {
+  background: #666666;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
