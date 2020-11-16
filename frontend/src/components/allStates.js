@@ -61,4 +61,4 @@ const allstates = [
   { "id": "WY", "val": "56" }
 ];
 
-export default allstates
+export default allstates;

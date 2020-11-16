@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ComposableMap, Geographies, Geography, Marker, Annotation } from "react-simple-maps";
 import { scaleQuantize } from "d3-scale";
 import { geoCentroid } from "d3-geo";
-import { csv } from "d3-fetch";
 import allStates from './allStates'
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
@@ -35,12 +34,7 @@ const offsets = {
 const MapChart = () => {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    // https://www.bls.gov/lau/
-    csv("/unemployment-by-county-2017.csv").then((counties) => {
-      setData(counties);
-    });
-  }, []);
+
 
   return (
     <>
