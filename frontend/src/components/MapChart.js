@@ -1,23 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ComposableMap, Geographies, Geography, Marker, Annotation } from "react-simple-maps";
-import { scaleQuantize } from "d3-scale";
 import { geoCentroid } from "d3-geo";
-import allStates from './allStates'
+import axios from 'axios';
+
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
-const colorScale = scaleQuantize()
-  .domain([1, 10])
-  .range([
-    "#ffedea",
-    "#ffcec5",
-    "#ffad9f",
-    "#ff8a75",
-    "#ff5533",
-    "#e2492d",
-    "#be3d26",
-    "#9a311f",
-    "#782618",
-  ]);
+const colorScale = (percentage) => {
+    if (percentage < 1) {
+        return 'green';
+    }
+    if (percentage < 2) {
+        return 'yellow';
+    }
+    if (percentage < 5) {
+        return 'orange';
+    }
+    return 'red'
+};
 
 const offsets = {
     VT: [50, -8],
@@ -34,7 +33,10 @@ const offsets = {
 const MapChart = () => {
   const [data, setData] = useState([]);
 
-
+    useEffect(() => {
+        axios.get('http://localhost:8080/states')
+            .then(res => setData(res.data))
+    }, []);
 
   return (
     <>
@@ -44,39 +46,39 @@ const MapChart = () => {
               <>
               {
                   geographies.map((geo) => {
-                      const cur = data.find((s) => s.id === geo.id);
+                      const cur = data.find((s) => s.name === geo.properties.name);
                       return (
                           <Geography
                               key={geo.rsmKey}
                               stroke="#FFF"
                               geography={geo}
-                              fill={colorScale(cur ? cur.unemployment_rate : "#EEE")}
+                              fill={colorScale(cur ? ((cur.cumulative_cases / cur.population) * 100) : "#fff")}
                           />
                       );
                   })
               }
                   {geographies.map(geo => {
                       const centroid = geoCentroid(geo);
-                      const cur = allStates.find(s => s.val === geo.id);
+                      const cur = data.find(s => s.name === geo.properties.name);
                       return (
                           <g key={geo.rsmKey + "-name"}>
                               {cur &&
                               centroid[0] > -160 &&
                               centroid[0] < -67 &&
-                              (Object.keys(offsets).indexOf(cur.id) === -1 ? (
+                              (Object.keys(offsets).indexOf(cur.abbreviation) === -1 ? (
                                   <Marker coordinates={centroid}>
                                       <text y="2" fontSize={14} textAnchor="middle">
-                                          {cur.id}
+                                          {cur.abbreviation}
                                       </text>
                                   </Marker>
                               ) : (
                                   <Annotation
                                       subject={centroid}
-                                      dx={offsets[cur.id][0]}
-                                      dy={offsets[cur.id][1]}
+                                      dx={offsets[cur.abbreviation][0]}
+                                      dy={offsets[cur.abbreviation][1]}
                                   >
                                       <text x={4} fontSize={14} alignmentBaseline="middle">
-                                          {cur.id}
+                                          {cur.abbreviation}
                                       </text>
                                   </Annotation>
                               ))}

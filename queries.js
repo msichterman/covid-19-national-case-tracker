@@ -9,7 +9,11 @@ const pool = new Pool({
 
 // First required query
 const getStates = (request, response) => {
-  pool.query(`SELECT * from "states"`, (error, results) => {
+  pool.query(`
+SELECT states.id, states.name, states.population, states.abbreviation, reports.cumulative_cases FROM states
+INNER JOIN reports ON states.id = reports.state_id
+WHERE reports.date = '11/03/2020'
+`, (error, results) => {
     if (error) {
       throw error;
     }

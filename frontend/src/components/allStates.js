@@ -61,4 +61,41 @@ const allstates = [
   { "id": "WY", "val": "56" }
 ];
 
+const abbrev = [
+  { name: 'Alabama', abbrev: 'AL' },
+  { name: 'Alaska', abbrev: 'AK' },
+  { name: 'Arizona', abbrev: 'AR' },
+  { name: 'Arkansas', abbrev: '' },
+  { name: 'California', abbrev: '' },
+  { name: 'Colorado', abbrev: 'CO' },
+  { name: 'California', abbrev: '' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+  { name: 'California', abbrev: 'CA' },
+]
+
+
 export default allstates;
