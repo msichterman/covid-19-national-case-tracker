@@ -7,13 +7,9 @@ const pool = new Pool({
   connectionString,
 });
 
-// First required query
+// Get list of all states data
 const getStates = (request, response) => {
-  pool.query(`
-SELECT states.id, states.name, states.population, states.abbreviation, reports.cumulative_cases FROM states
-INNER JOIN reports ON states.id = reports.state_id
-WHERE reports.date = '11/03/2020'
-`, (error, results) => {
+  pool.query(`SELECT id, name FROM states`, (error, results) => {
     if (error) {
       throw error;
     }
@@ -21,6 +17,23 @@ WHERE reports.date = '11/03/2020'
   });
 };
 
+const getStatesMapInfo = (request, response) => {
+  pool.query(
+    `
+SELECT states.id, states.name, states.population, states.abbreviation, reports.cumulative_cases FROM states
+INNER JOIN reports ON states.id = reports.state_id
+WHERE reports.date = '11/03/2020'
+`,
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+    }
+  );
+};
+
 module.exports = {
   getStates,
+  getStatesMapInfo,
 };

@@ -1,7 +1,21 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import MapChart from "./components/MapChart";
+import axios from "axios";
 
 function App() {
+  const [states, setStates] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/states")
+      .then((res) => setStates(res.data));
+  }, []);
+
+  useEffect(() => {
+    console.log({ states });
+  }, [states]);
+
   return (
     <div className="App">
       <header className="app-header">
@@ -17,7 +31,9 @@ function App() {
             <a href="#Reports">Reports</a>
           </li>
           <li>
-            <a href="#Submit a Case or Death">Submit a Case or Death</a>
+            <a href="#Political-Party-Correlation">
+              Political Party Correlation
+            </a>
           </li>
         </ul>
       </header>
@@ -29,8 +45,8 @@ function App() {
       <section id="Map">
         <h2>Map</h2>
         <p>
-          View county-specific information including population, and
-          state-specific coronavirus information
+          View state-specific information including location, population, and
+          COVID-19 severity.
         </p>
         <MapChart />
       </section>
@@ -42,9 +58,9 @@ function App() {
           <label for="state">Choose a State:</label>
           <br />
           <select name="state" id="state">
-            <option value="1">Alabama</option>
-            <option value="27">Nebraska</option>
-            <option value="35">Ohio</option>
+            {states.map((state) => {
+              return <option value={state.id}>{state.name}</option>;
+            })}
           </select>
           <br />
           <label for="date">Choose a Date:</label>
@@ -54,7 +70,7 @@ function App() {
             id="date"
             name="date"
             placeholder="2020-07-23"
-            min="2020-01-22"
+            min="2020-07-01"
             max="2020-11-03"
           ></input>
           <br />
@@ -62,31 +78,30 @@ function App() {
         </form>
       </section>
 
-      <section id="Submit a Case or Death">
-        <h2>Submit a Case or Death</h2>
-        <p>
-          Submit a coronavirus case or death in order for it to be included on
-          future reports
-        </p>
+      <section id="Political-Party-Correlation">
+        <h2>Political Party Correlation</h2>
+        <p>Please select a political party:</p>
         <form>
-          <label for="name">Name:</label>
+          <input type="radio" id="republican" name="party" value="1" />
+          <label for="republican">Republican</label>
           <br />
-          <input type="text" id="name" name="name" placeholder="John Doe" />
+          <input type="radio" id="democrat" name="party" value="2" />
+          <label for="democrat">Democrat</label>
           <br />
-          <label for="age">Age:</label>
+          <label for="date">Choose a Date:</label>
           <br />
-          <input type="number" id="age" name="age" placeholder="22" min="0" />
-          <br />
-          <label for="state">Choose Your State:</label>
-          <br />
-          <select name="state" id="state">
-            <option value="1">Alabama</option>
-            <option value="27">Nebraska</option>
-            <option value="35">Ohio</option>
-          </select>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            placeholder="2020-07-23"
+            min="2020-07-01"
+            max="2020-11-03"
+          ></input>
           <br />
           <input type="submit" value="Submit" />
         </form>
+        <div></div>
       </section>
     </div>
   );
