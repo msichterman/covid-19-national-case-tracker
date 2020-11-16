@@ -26,6 +26,4 @@ app.get("/party-report", db.getPartyReport);
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}.`);
-});
+app.listen(process.env.PORT || 8080);
