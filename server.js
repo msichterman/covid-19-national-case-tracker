@@ -18,11 +18,6 @@ app.get("/ping", (req, res) => {
   return res.send("pong");
 });
 
-// Set the root view to be the html file
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
-});
-
 // Set the routes for our queries
 app.get("/states", db.getStates);
 app.get("/states-map-info", db.getStatesMapInfo);
