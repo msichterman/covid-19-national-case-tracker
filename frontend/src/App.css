@@ -10,7 +10,7 @@
 }
 
 section {
-  padding: 40px 80px;
+  padding: 60px 100px;
 }
 
 section:nth-child(odd) {
@@ -45,4 +45,70 @@ ul.nav li.current a {
 svg {
   display: inline-block;
   vertical-align: middle;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+.state-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 40px 80px;
+}
+
+.data-tile {
+  padding: 2em 3em;
+  border: 1px gray solid;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.data-tile > p:first-child {
+  font-size: 48px;
+  margin: 0;
+}
+
+.data-tile > p:last-child {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.party-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 80px;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.party-data > p {
+  text-align: center;
+  margin: 0;
+}
+
+.party-data > p > span {
+  color: red;
+}
+
+.party-data > p:first-child {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.party-data > p:last-child {
+  font-size: 48px;
+}
+
+ol > li {
+  margin: 0.25em;
 }
