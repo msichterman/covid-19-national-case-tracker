@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   ComposableMap,
   Geographies,
@@ -7,7 +7,6 @@ import {
   Annotation,
 } from "react-simple-maps";
 import { geoCentroid } from "d3-geo";
-import axios from "axios";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
@@ -36,7 +35,7 @@ const offsets = {
   DC: [49, 21],
 };
 
-const MapChart = ({data, setData}) => {
+const MapChart = ({ data, setData }) => {
   return (
     <>
       <ComposableMap projection="geoAlbersUsa">

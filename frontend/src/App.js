@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/states")
+      .get("https://csce-413-covid-case-tracker.herokuapp.com/states")
       .then((res) => setStates(res.data));
   }, []);
 
@@ -22,11 +22,14 @@ function App() {
     const day = new Date(date);
     const addZero = day.getDate() < 10 ? `0${day.getDate()}` : day.getDate();
     axios
-      .get("http://localhost:8080/states-map-info", {
-        params: {
-          date: `${day.getMonth() + 1}/${addZero}/${day.getFullYear()}`,
-        },
-      })
+      .get(
+        "https://csce-413-covid-case-tracker.herokuapp.com/states-map-info",
+        {
+          params: {
+            date: `${day.getMonth() + 1}/${addZero}/${day.getFullYear()}`,
+          },
+        }
+      )
       .then((res) => setData(res.data));
   }, [date]);
 
@@ -47,7 +50,7 @@ function App() {
     const day = new Date(date);
     const addZero = day.getDate() < 10 ? `0${day.getDate()}` : day.getDate();
     axios
-      .get("http://localhost:8080/state-report", {
+      .get("https://csce-413-covid-case-tracker.herokuapp.com/state-report", {
         params: {
           date: `${day.getMonth() + 1}/${addZero}/${day.getFullYear()}`,
           state,
@@ -62,7 +65,7 @@ function App() {
     const day = new Date(date);
     const addZero = day.getDate() < 10 ? `0${day.getDate()}` : day.getDate();
     axios
-      .get("http://localhost:8080/party-report", {
+      .get("https://csce-413-covid-case-tracker.herokuapp.com/party-report", {
         params: {
           date: `${day.getMonth() + 1}/${addZero}/${day.getFullYear()}`,
           party,
