@@ -23,4 +23,6 @@ app.get("/states-map-info", db.getStatesMapInfo);
 app.get("/state-report", db.getStateReport);
 app.get("/party-report", db.getPartyReport);
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 app.listen(process.env.PORT || port);
