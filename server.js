@@ -26,6 +26,8 @@ app.get("/", (req, res) => {
 // Set the routes for our queries
 app.get("/states", db.getStates);
 app.get("/states-map-info", db.getStatesMapInfo);
+app.get("/state-report", db.getStateReport);
+app.get("/party-report", db.getPartyReport);
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 

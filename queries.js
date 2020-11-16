@@ -33,7 +33,53 @@ WHERE reports.date = '${request.query.date}'
   );
 };
 
+const getStateReport = (request, response) => {
+  pool.query(
+      `
+SELECT cumulative_cases, new_cases, cumulative_deaths, new_deaths
+FROM reports 
+WHERE state_id = ${request.query.state} and date = '${request.query.date}'
+`,
+      (error, results) => {
+        if (error) {
+          throw error;
+        }
+        response.status(200).json(results.rows);
+      }
+  );
+};
+
+const getPartyReport = (request, response) => {
+  pool.query(
+      `
+SELECT ((
+SELECT CAST(sum(cumulative_cases) AS FLOAT) 
+FROM reports 
+WHERE date = '${request.query.date}' AND 
+state_id IN (
+SELECT state_id 
+FROM governors 
+WHERE party_id = 1)
+) / (
+\t\tSELECT CAST(sum(population) AS FLOAT) 
+FROM states 
+WHERE id IN (
+SELECT state_id FROM governors where party_id = ${request.query.party})
+) * 100) as percent
+
+`,
+      (error, results) => {
+        if (error) {
+          throw error;
+        }
+        response.status(200).json(results.rows);
+      }
+  );
+};
+
 module.exports = {
   getStates,
   getStatesMapInfo,
+  getStateReport,
+  getPartyReport
 };
