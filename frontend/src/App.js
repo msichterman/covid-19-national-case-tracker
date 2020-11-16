@@ -5,6 +5,8 @@ import axios from "axios";
 
 function App() {
   const [states, setStates] = useState([]);
+  const [date, setDate] = useState('2020-11-03');
+    const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
@@ -12,9 +14,13 @@ function App() {
       .then((res) => setStates(res.data));
   }, []);
 
-  useEffect(() => {
-    console.log({ states });
-  }, [states]);
+    useEffect(() => {
+        const day = new Date(date);
+        const addZero = day.getDate() < 10 ? `0${day.getDate()}` : day.getDate();
+        axios
+            .get("http://localhost:8080/states-map-info", { params: { date: `${day.getMonth() + 1}/${addZero}/${day.getFullYear()}` }})
+            .then((res) => setData(res.data));
+    }, [date]);
 
   return (
     <div className="App">
@@ -48,7 +54,20 @@ function App() {
           View state-specific information including location, population, and
           COVID-19 severity.
         </p>
-        <MapChart />
+          <label htmlFor="date">Choose a Date:</label>
+          <br/>
+          <input
+              type="date"
+              id="date"
+              name="date"
+              placeholder="2020-07-23"
+              min="2020-07-01"
+              max="2020-11-03"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+          ></input>
+          <br/>
+        <MapChart data={data} setData={setData} />
       </section>
 
       <section id="Reports">
@@ -62,17 +81,6 @@ function App() {
               return <option value={state.id}>{state.name}</option>;
             })}
           </select>
-          <br />
-          <label for="date">Choose a Date:</label>
-          <br />
-          <input
-            type="date"
-            id="date"
-            name="date"
-            placeholder="2020-07-23"
-            min="2020-07-01"
-            max="2020-11-03"
-          ></input>
           <br />
           <input type="submit" value="Submit" />
         </form>

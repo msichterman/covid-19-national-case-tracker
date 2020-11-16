@@ -22,7 +22,7 @@ const getStatesMapInfo = (request, response) => {
     `
 SELECT states.id, states.name, states.population, states.abbreviation, reports.cumulative_cases FROM states
 INNER JOIN reports ON states.id = reports.state_id
-WHERE reports.date = '11/03/2020'
+WHERE reports.date = '${request.query.date}'
 `,
     (error, results) => {
       if (error) {

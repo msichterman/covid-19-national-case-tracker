@@ -36,15 +36,7 @@ const offsets = {
   DC: [49, 21],
 };
 
-const MapChart = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:8080/states-map-info")
-      .then((res) => setData(res.data));
-  }, []);
-
+const MapChart = ({data, setData}) => {
   return (
     <>
       <ComposableMap projection="geoAlbersUsa">
