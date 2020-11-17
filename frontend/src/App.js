@@ -125,8 +125,8 @@ function App() {
       <section id="Map">
         <h2>Map</h2>
         <p>
-          View state-specific information including location, population, and
-          COVID-19 severity.
+          See a national view of COVID-19 severity for states based on their
+          percentage of population with reported cases for the selected date.
         </p>
         <label htmlFor="date">Choose a Date:</label>
         <br />
