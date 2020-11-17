@@ -117,7 +117,7 @@ function App() {
           <li>
             Select a political party to query for the percentage of the
             population with COVID-19 (for the date above) for states with
-            govenors of the selected party.
+            governors of the selected party.
           </li>
         </ol>
       </section>
@@ -229,7 +229,7 @@ function App() {
           <>
             <div className="party-data" autoFocus>
               <p>
-                Percentage of population affected in states with govenors who
+                Percentage of population affected in states with governors who
                 are{" "}
                 <span style={{ color: party === 1 ? "red" : "blue" }}>
                   {party === 1 ? "Republican" : "Democrat"}
