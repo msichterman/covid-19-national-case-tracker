@@ -22,7 +22,7 @@ Secondary Goal
 
 ### Database design
 * Five entities: State, County, Report, Governor, and Party
-<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/COVID-19-ER-Diagram.png" alt="ER Diagram" />
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/COVID-19-ER-Diagram.png" alt="ER Diagram" />
 
 ### User Functionality
 1. Given a date, get state information to populate the map and later calculate the amount of covid cases for each states’ population (as a percentage)
