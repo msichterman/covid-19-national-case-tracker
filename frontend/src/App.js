@@ -72,7 +72,6 @@ function App() {
         },
       })
       .then((res) => {
-        console.log(res.data);
         res.data.length > 0 && setPartyData(res.data[0]);
       });
   };
