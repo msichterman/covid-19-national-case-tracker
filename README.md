@@ -85,3 +85,9 @@ npm run dev
 ```javascript
 res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 ```
+
+## Contributors
+* [Matt Sichterman](https://msich.dev/)
+* [Easton Joachimsen](https://github.com/eastonray9)
+* [Ryan Le](https://ryanle.dev/)
+* [Christian Berck](https://github.com/cberck4)
