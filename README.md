@@ -24,7 +24,7 @@ Secondary Goal
 * Five entities: State, County, Report, Governor, and Party
 <img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/COVID-19-ER-Diagram.png" alt="ER Diagram" />
 
-### User Functionality
+### User functionality
 1. Given a date, get state information to populate the map and later calculate the amount of covid cases for each states’ population (as a percentage)
 2. Given a state and a date, get the report including COVID-19 cases and deaths
 3. Given a political party, get the amount of covid cases for the population (as a percentage)
