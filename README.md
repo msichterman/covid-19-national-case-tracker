@@ -21,8 +21,22 @@ Secondary Goal
 * Supplemented our COVID-19 data with governor information per state and their political parties
 
 ### Database design
-* Five entities: State, County, Report, Governor, and Party
+#### Five entities
+State, County, Report, Governor, Party
+
+#### ER diagram:
 <img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/COVID-19-ER-Diagram.png" alt="ER Diagram" />
+
+#### States table sample
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/states_sample.png" alt="States table sample" />
+#### Counties table sample
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/counties_sample.png" alt="Counties table sample" />
+#### Reports table sample
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/reports_sample.png" alt="Reports table sample" />
+#### Governors table sample
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/governors_sample.png" alt="Governors table sample" />
+#### Parties table sample
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/parties_sample.png" alt="Parties table sample" />
 
 ### User functionality
 1. Given a date, get state information to populate the map and later calculate the amount of covid cases for each states’ population (as a percentage)
