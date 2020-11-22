@@ -21,10 +21,24 @@ Secondary Goal
 * Supplemented our COVID-19 data with governor information per state and their political parties
 
 ### Database design
-* Five entities: State, County, Report, Governor, and Party
+#### Five entities
+State, County, Report, Governor, Party
+
+#### ER diagram:
 <img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/COVID-19-ER-Diagram.png" alt="ER Diagram" />
 
-### User Functionality
+#### States table sample
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/states_sample.png" alt="States table sample" />
+#### Counties table sample
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/counties_sample.png" alt="Counties table sample" />
+#### Reports table sample
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/reports_sample.png" alt="Reports table sample" />
+#### Governors table sample
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/governors_sample.png" alt="Governors table sample" />
+#### Parties table sample
+<img src="https://github.com/msichterman/covid-19-national-case-tracker/blob/main/other-files/parties_sample.png" alt="Parties table sample" />
+
+### User functionality
 1. Given a date, get state information to populate the map and later calculate the amount of covid cases for each states’ population (as a percentage)
 2. Given a state and a date, get the report including COVID-19 cases and deaths
 3. Given a political party, get the amount of covid cases for the population (as a percentage)
@@ -85,3 +99,9 @@ npm run dev
 ```javascript
 res.header("Access-Control-Allow-Origin", "http://localhost:3000");
 ```
+
+## Contributors
+* [Matt Sichterman](https://msich.dev/)
+* [Easton Joachimsen](https://github.com/eastonray9)
+* [Ryan Le](https://ryanle.dev/)
+* [Christian Berck](https://github.com/cberck4)
