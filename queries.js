@@ -1,6 +1,6 @@
 const Pool = require("pg").Pool;
 const connectionString =
-  "postgres://vtusuoswhkgfck:a84c0194b26b60817932b88867436ab389bf705dc5d48611678b14f7ca1ec8b0@ec2-100-25-100-81.compute-1.amazonaws.com:5432/d6cqoi6r59uhul?ssl=true";
+  "postgres://btniytufxakmvh:57455d8da4aa1ebc2818cb500643f42e88bd1802eb4b7d280c672cbd6ad8a88b@ec2-54-82-191-247.compute-1.amazonaws.com:5432/d5t0m06tkf3e9a?ssl=true";
 
 // Sets up the credentials to access the database
 const pool = new Pool({
